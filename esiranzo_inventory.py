@@ -1,14 +1,19 @@
-user_input = str(input(""))
+numSlots = int(input())
 
-input_lines = user_input.splitlines()
-print(input_lines)
+dictItems = {}
 
-dictItems = { };
+for i in range(numSlots):
+    item = input("").split()
+    name = item[0]
+    count = int(item[1])
 
-# for i in input_lines:
-# 	if i == 0:
-# 		noItems = input_lines[i]
-# 	else:
-# 		item = input_lines[i].split(" ")
-# 		dictItems[item[0]] = item[1]
-# 		print(dictItems)
+    if name in dictItems:
+        dictItems[name] += int(count)
+    else:
+        dictItems[name] = int(count)
+
+
+
+for key,value in dictItems.items():
+    print (key, ((value + 63) //64))
+
